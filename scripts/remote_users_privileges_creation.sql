@@ -1,0 +1,31 @@
+/* 1. CREACIÓN DE USUARIOS REMOTOS */
+CREATE USER IF NOT EXISTS 'cristopher.escamilla'@'%' IDENTIFIED BY '240687';
+CREATE USER IF NOT EXISTS 'marco.ramirez'@'%' IDENTIFIED BY 'qwerty123';
+CREATE USER IF NOT EXISTS 'yhostin.ramirez'@'%' IDENTIFIED BY '240071';
+CREATE USER IF NOT EXISTS 'olaf.garcia'@'%' IDENTIFIED BY '240508';
+
+/* 2. ASIGNACIÓN DE PRIVILEGIOS AL SUPER USUARIO */
+GRANT ALL PRIVILEGES ON *.* TO 'cristopher.escamilla'@'%' WITH GRANT OPTION;
+
+/* 3. CREACIÓN DE ROLES */
+CREATE ROLE IF NOT EXISTS 'admin';
+CREATE ROLE IF NOT EXISTS 'seller';
+CREATE ROLE IF NOT EXISTS 'buyer';
+CREATE ROLE IF NOT EXISTS 'common_user';
+CREATE ROLE IF NOT EXISTS 'user_not_registered';
+CREATE ROLE IF NOT EXISTS 'support';
+
+/* 4. ASIGNACIÓN DE PRIVILEGIOS A ROLES */
+GRANT ALL PRIVILEGES ON db_test.* TO 'admin';
+GRANT SELECT, INSERT, UPDATE ON db_test.tb_users TO 'support';
+
+/* 5. ASIGNACIÓN DE ROLES A USUARIOS */
+GRANT 'admin' TO 'marco.ramirez'@'%';
+GRANT 'support' TO 'yhostin.ramirez'@'%';
+
+/* 6. ACTIVACIÓN DE ROLES (CRÍTICO PARA MYSQL 8+) */
+SET DEFAULT ROLE 'admin' TO 'marco.ramirez'@'%';
+SET DEFAULT ROLE 'support' TO 'yhostin.ramirez'@'%';
+
+/* 7. APLICAR CAMBIOS */
+FLUSH PRIVILEGES;
