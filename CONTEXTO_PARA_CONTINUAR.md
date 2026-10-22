@@ -2,6 +2,9 @@
 
 Fecha de esta sesión: 20 de octubre de 2026.
 
+Actualización del explorador: 21 de octubre de 2026. La sección de explorador
+describe la versión vigente; se retiraron el generador y la plantilla anteriores.
+
 ## Mensaje para el próximo chat
 
 Estoy desarrollando un proyecto académico de Base de Datos en la Nube con MySQL,
@@ -230,45 +233,46 @@ confirmé haberlas instalado. El verificador debe mostrar 13 resultados OK.
 
 ## Explorador interactivo
 
-El archivo `practica03/modelo-eer.html` pertenece a un compañero. El asistente leyó
-su código como referencia; no lo modificó. Es un explorador con datos incorporados
-desde un dump, no una conexión en vivo.
+El visor vigente es `practica03/modelo-eer.html`, actualizado con el diseño
+“EER / Schema Atlas” y los datos de `practica03/backups/respaldo10_20.sql`.
+Se abre directamente en un navegador, sin servidor ni dependencias externas.
+No se conecta a MySQL ni se actualiza automáticamente.
 
-Mi versión nueva:
+Archivos del único generador conservado:
 
-- `practica03/explorador-eer.html`: abrir directamente en navegador, sin servidor
-  ni dependencias externas. Nombre visual: “Atlas de datos”, matrícula 240687.
+- `practica03/modelo-eer.html`: visor final autocontenido para abrir o compartir.
 - `practica03/EXPLORADOR.md`: uso, procedencia y límites.
-- `practica03/scripts/eer_explorer_template.html`: plantilla editable.
-- `practica03/scripts/generate_eer_explorer.py`: genera el HTML desde respaldo y
-  scripts. Ejecutar desde la raíz: `python practica03/scripts/generate_eer_explorer.py`.
+- `practica03/modelo-eer.template.html`: plantilla editable.
+- `practica03/generar_modelo_eer.py`: genera el HTML desde el respaldo. Ejecutar
+  desde la raíz: `python practica03/generar_modelo_eer.py`.
 
-Incluye 16 tablas, 137 columnas, 20 FK y 45 triggers documentados. Combina cuatro
-tablas del respaldo del 14/10 con doce adicionales del script; para tablas que ya
-existen prevalece el respaldo. No incluye datos personales ni contraseñas.
+Incluye 16 tablas, 137 columnas, 10,130 registros y 20 FK declaradas. Tres FK son
+compuestas y se dibujan 23 pares de columnas. Los conteos se extraen de los INSERT
+del respaldo; no se incorporan valores de las filas al HTML ni se consulta el
+servidor actual. El visor no comprueba la instalación de los scripts.
 
-Funciones: buscar tabla/columna, filtrar por función, zoom, desplazar fondo,
-arrastrar tablas, navegar relaciones, consultar DDL y auditoría, copiar SQL y
-exportar SVG de lo visible. Ctrl+K enfoca búsqueda y Escape cierra detalles.
-No persiste posiciones entre sesiones. Las flechas apuntan a la tabla referenciada;
-no es una notación completa de cardinalidades EER.
+Funciones: búsqueda por tabla, columna o tipo; filtros de tablas con datos/vacías;
+distribución jerárquica LR o grid; colapso de tarjetas; zoom, paneo, arrastre y
+minimapa; detalle de restricciones y relaciones; exportación SVG/PNG.
+Ctrl+K / Cmd+K enfoca búsqueda, F ajusta el lienzo y Escape cierra detalles.
+No persiste posiciones entre sesiones.
 
-Los conteos son del respaldo; `s/d` indica falta de información de ejecución,
-NO que la tabla esté vacía. La jerarquía de categorías no se dibuja como FK porque
-el respaldo no la declara. El explorador no comprueba instalación de los scripts.
+El generador prefiere explícitamente el respaldo del 20/10. Solo si falta busca
+el SQL con modificación más reciente en backups. Para usar otro respaldo
+posterior, cambiar `preferred` antes de regenerar. También escribe un candidato
+complementario para Archify en `.archify/erd-db-test/candidate.json`.
 
-Se validó sintaxis JavaScript con `node --check`, referencias DOM, conteos y FK
-contra columnas del modelo. NO hubo prueba visual/interactiva en navegador;
-Playwright no estaba instalado. Si algo falla visualmente, revisar y corregir.
+Se realizaron 20 comprobaciones del visor en Edge abriendo el archivo local,
+incluyendo interacción y generación SVG/PNG, y se revisaron capturas visuales.
 
 ### Situación de Archify
 
-Pedí explícitamente Archify. No se encontró entre las herramientas conectadas
-ni en la búsqueda del catálogo de plugins. No se instaló ni se usó Archify.
-La versión entregada es una implementación local alternativa, no generada con
-ese servicio. No afirmar que sí se utilizó. Sigue pendiente identificar el enlace
-o integración exacta si quiero continuar con esa herramienta. Se consultaron las
-guías disponibles de gestión de plugins y Sites; no se creó ni publicó un Site.
+Archify se instaló como skill de Codex el 21/10 y se utilizó para el modelo ERD
+complementario. El visor principal tiene una interfaz personalizada en HTML/CSS/JS.
+El modelo complementario pasó validación estructural, entrega y comprobación de
+artefacto, pero su revisión de navegador reportó problemas de tamaño y legibilidad.
+Las 20 comprobaciones de Edge corresponden al visor personalizado `modelo-eer.html`,
+no a la salida nativa complementaria. No se creó ni publicó un Site.
 
 ## Estado de Git y traslado a otra computadora
 
@@ -297,9 +301,10 @@ Revisar el nuevo respaldo del 20/10 antes de elegir cuál usar.
 4. Respaldar antes de migrar. Evitar repetir creación de triggers/vistas o cargas.
 5. Resolver cualquier error de los verificadores en una instancia de prueba/local.
 6. Validar origen de las asociaciones por ID y preparar cargas seguras por SKU.
-7. Actualizar el explorador para usar el respaldo correcto y probarlo en navegador.
-8. Si se mantiene el requisito Archify, identificar su integración sin atribuir
-   falsamente la implementación local a esa herramienta.
+7. Si hay un respaldo posterior al 20/10, actualizar `preferred` en el generador,
+   regenerar el visor y comprobarlo en navegador según `practica03/EXPLORADOR.md`.
+8. Usar `practica03/modelo-eer.html` como visor vigente; la skill Archify ya está
+   instalada y su modelo complementario tiene los límites descritos arriba.
 
 No quedan credenciales de conexión registradas en este contexto. Los scripts
 originales sí contienen contraseñas en texto claro; no imprimirlas ni copiarlas

@@ -1,0 +1,28 @@
+{
+  "passed": 20,
+  "checks": [
+    "16 tablas, 137 columnas, 20 FK y 23 segmentos",
+    "10,130 filas exactas del snapshot",
+    "Sin desbordamiento de página en escritorio",
+    "Con datos: 4 tablas, conteo de filas conservado",
+    "Vacías: 12 tablas y cero filas",
+    "Búsqueda por tipo decimal",
+    "Estado sin coincidencias",
+    "Colapso global",
+    "Grid sin solapamientos",
+    "Detalle de FK compuesta",
+    "Definición enum precisa",
+    "Leyenda interactiva",
+    "Ctrl K enfoca búsqueda",
+    "Zoom con rueda",
+    "Paneo por arrastre",
+    "Movimiento individual de tabla",
+    "Navegación con minimapa",
+    "Generación SVG y PNG real en file:// (Blob capturado)",
+    "Sin desbordamiento de página a 640px",
+    "Sin errores JS de ejecución"
+  ],
+  "browser": "Microsoft Edge headless",
+  "url": "file://",
+  "errors": []
+}

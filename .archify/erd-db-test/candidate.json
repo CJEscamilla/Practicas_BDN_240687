@@ -1,0 +1,1202 @@
+{
+  "schema_version": 1,
+  "diagram_type": "erd",
+  "meta": {
+    "title": "DB_TEST · Modelo físico completo",
+    "locale": "es",
+    "output": ".archify/erd-db-test/archify.html",
+    "quality_profile": "standard",
+    "repository": {
+      "url": "https://github.com/CJEscamilla/Practicas_BDN_240687.git",
+      "revision": "5d27fb48acfa2016b06b5ae510289c6ea23bbc9e"
+    }
+  },
+  "layout": {
+    "mode": "grid",
+    "gapX": 110,
+    "gapY": 60,
+    "entityW": 360
+  },
+  "entities": [
+    {
+      "id": "tb_users",
+      "label": "tb_users",
+      "tag": "Identidad",
+      "row": 0,
+      "col": 0,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int",
+          "key": [
+            "pk"
+          ]
+        },
+        {
+          "name": "email",
+          "type": "varchar(80)",
+          "key": [
+            "uk"
+          ]
+        },
+        {
+          "name": "nickname",
+          "type": "varchar(100)",
+          "key": [
+            "uk"
+          ]
+        },
+        {
+          "name": "password",
+          "type": "varchar(255)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        },
+        {
+          "name": "last_login",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 213,
+          "end_line": 224
+        }
+      ]
+    },
+    {
+      "id": "tb_user_addresses",
+      "label": "tb_user_addresses",
+      "tag": "Identidad",
+      "row": 1,
+      "col": 0,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk",
+            "uk"
+          ]
+        },
+        {
+          "name": "user_ID",
+          "type": "int",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "label",
+          "type": "varchar(60)"
+        },
+        {
+          "name": "recipient_name",
+          "type": "varchar(150)"
+        },
+        {
+          "name": "phone",
+          "type": "varchar(30)"
+        },
+        {
+          "name": "street",
+          "type": "varchar(200)"
+        },
+        {
+          "name": "exterior_number",
+          "type": "varchar(30)"
+        },
+        {
+          "name": "interior_number",
+          "type": "varchar(30)"
+        },
+        {
+          "name": "neighborhood",
+          "type": "varchar(120)"
+        },
+        {
+          "name": "city",
+          "type": "varchar(120)"
+        },
+        {
+          "name": "state",
+          "type": "varchar(120)"
+        },
+        {
+          "name": "postal_code",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "country_code",
+          "type": "char(2)"
+        },
+        {
+          "name": "delivery_instructions",
+          "type": "varchar(500)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 173,
+          "end_line": 194
+        }
+      ]
+    },
+    {
+      "id": "tbd_user_payment_methods",
+      "label": "tbd_user_payment_methods",
+      "tag": "Identidad",
+      "row": 2,
+      "col": 0,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk",
+            "uk"
+          ]
+        },
+        {
+          "name": "user_ID",
+          "type": "int",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "payment_method_type_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk"
+          ],
+          "references": "tbc_payment_methods_types.ID"
+        },
+        {
+          "name": "provider",
+          "type": "varchar(80)",
+          "key": [
+            "uk"
+          ]
+        },
+        {
+          "name": "provider_reference",
+          "type": "varchar(255)",
+          "key": [
+            "uk"
+          ]
+        },
+        {
+          "name": "display_name",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "last_four",
+          "type": "char(4)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 497,
+          "end_line": 514
+        }
+      ]
+    },
+    {
+      "id": "tbc_payment_methods_types",
+      "label": "tbc_payment_methods_types",
+      "tag": "Identidad",
+      "row": 3,
+      "col": 0,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk"
+          ]
+        },
+        {
+          "name": "code",
+          "type": "varchar(40)",
+          "key": [
+            "uk"
+          ]
+        },
+        {
+          "name": "name",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 328,
+          "end_line": 337
+        }
+      ]
+    },
+    {
+      "id": "tb_products",
+      "label": "tb_products",
+      "tag": "Catálogo",
+      "row": 0,
+      "col": 1,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk"
+          ]
+        },
+        {
+          "name": "SKU",
+          "type": "varchar(50)",
+          "key": [
+            "uk"
+          ]
+        },
+        {
+          "name": "name",
+          "type": "varchar(250)"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "current_price",
+          "type": "decimal(10,2)"
+        },
+        {
+          "name": "current_stock",
+          "type": "int unsigned"
+        },
+        {
+          "name": "status",
+          "type": "tinyint"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 139,
+          "end_line": 152
+        }
+      ]
+    },
+    {
+      "id": "tbc_categories",
+      "label": "tbc_categories",
+      "tag": "Catálogo",
+      "row": 1,
+      "col": 1,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk"
+          ]
+        },
+        {
+          "name": "name",
+          "type": "varchar(120)",
+          "key": [
+            "uk"
+          ]
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "sup_id_category",
+          "type": "int unsigned"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 271,
+          "end_line": 281
+        }
+      ]
+    },
+    {
+      "id": "tbd_products_categories",
+      "label": "tbd_products_categories",
+      "tag": "Catálogo",
+      "row": 2,
+      "col": 1,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk"
+          ]
+        },
+        {
+          "name": "product_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_products.ID"
+        },
+        {
+          "name": "category_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tbc_categories.ID"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 432,
+          "end_line": 444
+        }
+      ]
+    },
+    {
+      "id": "tbd_products_users_providers",
+      "label": "tbd_products_users_providers",
+      "tag": "Catálogo",
+      "row": 3,
+      "col": 1,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk"
+          ]
+        },
+        {
+          "name": "product_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_products.ID"
+        },
+        {
+          "name": "provider_user_ID",
+          "type": "int",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "provider_sku",
+          "type": "varchar(80)"
+        },
+        {
+          "name": "acquisition_cost",
+          "type": "decimal(10,2)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 463,
+          "end_line": 478
+        }
+      ]
+    },
+    {
+      "id": "tbd_users_wishilst_products",
+      "label": "tbd_users_wishilst_products",
+      "tag": "Catálogo",
+      "row": 4,
+      "col": 1,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk"
+          ]
+        },
+        {
+          "name": "user_ID",
+          "type": "int",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "product_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_products.ID"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 533,
+          "end_line": 545
+        }
+      ]
+    },
+    {
+      "id": "tb_carts",
+      "label": "tb_carts",
+      "tag": "Compra",
+      "row": 0,
+      "col": 2,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk",
+            "uk"
+          ]
+        },
+        {
+          "name": "user_ID",
+          "type": "int",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_users.ID"
+        },
+        {
+          "name": "status",
+          "type": "enum('active','converted','abandoned')"
+        },
+        {
+          "name": "currency",
+          "type": "char(3)"
+        },
+        {
+          "name": "active_user_ID",
+          "type": "int",
+          "key": [
+            "uk"
+          ]
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 76,
+          "end_line": 88
+        }
+      ]
+    },
+    {
+      "id": "tbd_carts_items",
+      "label": "tbd_carts_items",
+      "tag": "Compra",
+      "row": 1,
+      "col": 2,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk"
+          ]
+        },
+        {
+          "name": "cart_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_carts.ID"
+        },
+        {
+          "name": "product_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_products.ID"
+        },
+        {
+          "name": "cart_item_status_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk"
+          ],
+          "references": "tbc_carts_items.ID"
+        },
+        {
+          "name": "quantity",
+          "type": "int unsigned"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 356,
+          "end_line": 372
+        }
+      ]
+    },
+    {
+      "id": "tbc_carts_items",
+      "label": "tbc_carts_items",
+      "tag": "Compra",
+      "row": 2,
+      "col": 2,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk"
+          ]
+        },
+        {
+          "name": "code",
+          "type": "varchar(40)",
+          "key": [
+            "uk"
+          ]
+        },
+        {
+          "name": "name",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "description",
+          "type": "varchar(255)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 244,
+          "end_line": 252
+        }
+      ]
+    },
+    {
+      "id": "tb_buyer_orders",
+      "label": "tb_buyer_orders",
+      "tag": "Compra",
+      "row": 3,
+      "col": 2,
+      "width": 600,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk"
+          ]
+        },
+        {
+          "name": "order_number",
+          "type": "varchar(40)",
+          "key": [
+            "uk"
+          ]
+        },
+        {
+          "name": "buyer_user_ID",
+          "type": "int",
+          "key": [
+            "fk"
+          ],
+          "references": "tb_user_addresses.user_ID"
+        },
+        {
+          "name": "cart_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_carts.ID"
+        },
+        {
+          "name": "shipping_address_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk"
+          ],
+          "references": "tb_user_addresses.ID"
+        },
+        {
+          "name": "user_payment_method_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk"
+          ],
+          "references": "tbd_user_payment_methods.ID"
+        },
+        {
+          "name": "status",
+          "type": "enum('pending','confirmed','processing','shipped','delivered','cancelled')"
+        },
+        {
+          "name": "payment_status",
+          "type": "enum('pending','authorized','paid','failed','refunded')"
+        },
+        {
+          "name": "currency",
+          "type": "char(3)"
+        },
+        {
+          "name": "shipping_address_snapshot",
+          "type": "json"
+        },
+        {
+          "name": "subtotal",
+          "type": "decimal(14,2)"
+        },
+        {
+          "name": "discount_total",
+          "type": "decimal(14,2)"
+        },
+        {
+          "name": "tax_total",
+          "type": "decimal(14,2)"
+        },
+        {
+          "name": "shipping_total",
+          "type": "decimal(14,2)"
+        },
+        {
+          "name": "grand_total",
+          "type": "decimal(14,2)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 27,
+          "end_line": 57
+        }
+      ]
+    },
+    {
+      "id": "tbd_order_itemes",
+      "label": "tbd_order_itemes",
+      "tag": "Compra",
+      "row": 4,
+      "col": 2,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk"
+          ]
+        },
+        {
+          "name": "order_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_buyer_orders.ID"
+        },
+        {
+          "name": "product_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk",
+            "uk"
+          ],
+          "references": "tb_products.ID"
+        },
+        {
+          "name": "order_item_status_ID",
+          "type": "int unsigned",
+          "key": [
+            "fk"
+          ],
+          "references": "tbc_order_items.ID"
+        },
+        {
+          "name": "product_sku_snapshot",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "product_name_snapshot",
+          "type": "varchar(250)"
+        },
+        {
+          "name": "quantity",
+          "type": "int unsigned"
+        },
+        {
+          "name": "unit_price",
+          "type": "decimal(10,2)"
+        },
+        {
+          "name": "discount_total",
+          "type": "decimal(14,2)"
+        },
+        {
+          "name": "tax_total",
+          "type": "decimal(14,2)"
+        },
+        {
+          "name": "line_total",
+          "type": "decimal(14,2)"
+        },
+        {
+          "name": "creation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "last_update",
+          "type": "datetime"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 391,
+          "end_line": 413
+        }
+      ]
+    },
+    {
+      "id": "tbc_order_items",
+      "label": "tbc_order_items",
+      "tag": "Compra",
+      "row": 5,
+      "col": 2,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int unsigned",
+          "key": [
+            "pk"
+          ]
+        },
+        {
+          "name": "code",
+          "type": "varchar(40)",
+          "key": [
+            "uk"
+          ]
+        },
+        {
+          "name": "name",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "description",
+          "type": "varchar(255)"
+        },
+        {
+          "name": "status",
+          "type": "bit(1)"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 301,
+          "end_line": 309
+        }
+      ]
+    },
+    {
+      "id": "tb_logs",
+      "label": "tb_logs",
+      "tag": "Auditoría",
+      "row": 0,
+      "col": 3,
+      "width": 380,
+      "attributes": [
+        {
+          "name": "ID",
+          "type": "int",
+          "key": [
+            "pk"
+          ]
+        },
+        {
+          "name": "table_name",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "operation",
+          "type": "enum('Create','Read','Update','Delete')"
+        },
+        {
+          "name": "db_users",
+          "type": "varchar(80)"
+        },
+        {
+          "name": "description",
+          "type": "text"
+        },
+        {
+          "name": "operation_date",
+          "type": "datetime"
+        },
+        {
+          "name": "operation_status",
+          "type": "bit(1)"
+        }
+      ],
+      "sources": [
+        {
+          "path": "practica03/backups/respaldo10_20.sql",
+          "line": 107,
+          "end_line": 118
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "fk_order_address_owner",
+      "from": "tb_buyer_orders",
+      "to": "tb_user_addresses",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_order_buyer",
+      "from": "tb_buyer_orders",
+      "to": "tb_users",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_order_cart_owner",
+      "from": "tb_buyer_orders",
+      "to": "tb_carts",
+      "fromCardinality": "one",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": true
+    },
+    {
+      "id": "fk_order_payment_owner",
+      "from": "tb_buyer_orders",
+      "to": "tbd_user_payment_methods",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": true
+    },
+    {
+      "id": "fk_cart_user",
+      "from": "tb_carts",
+      "to": "tb_users",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_address_user",
+      "from": "tb_user_addresses",
+      "to": "tb_users",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_cart_detail_cart",
+      "from": "tbd_carts_items",
+      "to": "tb_carts",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_cart_detail_product",
+      "from": "tbd_carts_items",
+      "to": "tb_products",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_cart_detail_state",
+      "from": "tbd_carts_items",
+      "to": "tbc_carts_items",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_order_detail_order",
+      "from": "tbd_order_itemes",
+      "to": "tb_buyer_orders",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_order_detail_product",
+      "from": "tbd_order_itemes",
+      "to": "tb_products",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_order_detail_state",
+      "from": "tbd_order_itemes",
+      "to": "tbc_order_items",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_product_category_category",
+      "from": "tbd_products_categories",
+      "to": "tbc_categories",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_product_category_product",
+      "from": "tbd_products_categories",
+      "to": "tb_products",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_provider_product",
+      "from": "tbd_products_users_providers",
+      "to": "tb_products",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_provider_user",
+      "from": "tbd_products_users_providers",
+      "to": "tb_users",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_payment_type",
+      "from": "tbd_user_payment_methods",
+      "to": "tbc_payment_methods_types",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_payment_user",
+      "from": "tbd_user_payment_methods",
+      "to": "tb_users",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_wishlist_product",
+      "from": "tbd_users_wishilst_products",
+      "to": "tb_products",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    },
+    {
+      "id": "fk_wishlist_user",
+      "from": "tbd_users_wishilst_products",
+      "to": "tb_users",
+      "fromCardinality": "many",
+      "toCardinality": "one",
+      "fromOptional": true,
+      "toOptional": false
+    }
+  ]
+}

@@ -44,6 +44,7 @@ GRANT SELECT,INSERT, UPDATE
 ON db_test.tb_products
 TO 'seller';
 
+GRANT SELECT,
 
 /* 4. ASIGNACIÓN DE PRIVILEGIOS A ROLES */
 GRANT ALL PRIVILEGES ON db_test.* TO 'admin';
@@ -103,3 +104,4 @@ flush privileges;
 */
 SELECT 'Usuarios remotos y roles creados y asignados correctamente' AS mensaje;
 
+/* al usuario no registrado dar privilegios de inserccion en las tablas users, personal_data 

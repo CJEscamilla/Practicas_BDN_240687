@@ -1,53 +1,58 @@
-# Atlas de datos · 240687
+# EER / Schema Atlas · DB_TEST
 
-Abrir `explorador-eer.html` directamente en un navegador. No requiere instalar
-dependencias ni iniciar un servidor. Es un explorador documental local, escrito
-para este proyecto; no fue generado con Archify, cuya integración no está
-disponible en esta sesión. No modifica `modelo-eer.html` del compañero.
+Abrir `modelo-eer.html` directamente en un navegador. El visor contiene sus datos,
+estilos y JavaScript; funciona sin servidor, conexión a MySQL ni dependencias
+externas. Este es el archivo que se debe abrir o compartir.
 
 ## Uso
 
-- Buscar tablas o columnas y filtrar entidades, catálogos, detalles o bitácora.
-- Seleccionar una tabla desde el panel lateral o su encabezado.
-- Consultar resumen, claves únicas, auditoría documentada, relaciones y DDL.
-- Navegar a otra tabla desde el panel de relaciones.
-- Arrastrar encabezados para reorganizar tablas y el fondo para desplazarse.
-- Usar la rueda o los botones para cambiar el zoom; Encuadrar ajusta el modelo.
-- Restablecer recupera distribución y filtros iniciales. Las posiciones no se
-  guardan entre sesiones.
-- Exportar SVG descarga las tablas y relaciones visibles en su posición actual.
-- Ctrl+K enfoca la búsqueda; Escape cierra el panel de detalles.
+- Buscar tablas, columnas o tipos; Ctrl+K / Cmd+K enfoca la búsqueda.
+- Filtrar todas las tablas, las que tienen datos o las vacías. Las métricas
+  superiores muestran los totales correspondientes a las tablas visibles.
+- Cambiar entre distribución jerárquica LR y orgánica/grid.
+- Mostrar u ocultar tipos y colapsar o expandir las tarjetas.
+- Seleccionar tablas, columnas o conectores para consultar restricciones y
+  relaciones; Escape cierra los detalles.
+- Arrastrar los encabezados para mover tablas y el fondo para desplazar el lienzo.
+- Usar la rueda, los controles de zoom y el minimapa para navegar. El botón
+  Ajustar al lienzo o la tecla F encuadra todas las tablas visibles.
+- Resaltar columnas mediante la leyenda PK, FK, UQ, NN y AI.
+- Exportar las tablas y relaciones visibles como SVG o PNG.
+
+Las posiciones y filtros no se guardan entre sesiones.
 
 ## Origen de información
 
-Combina las cuatro tablas de `backups/respaldo10_14.sql` con las doce adicionales
-de `scripts/create_ecommerce_tables.sql`. Para tablas existentes prevalece el
-respaldo. Obtiene los nombres de triggers del respaldo y del script de auditoría,
-y los nombres de vistas según las convenciones de los scripts del proyecto.
+El visor actual se generó a partir de `backups/respaldo10_20.sql`: 16 tablas,
+137 columnas, 10,130 registros y 20 restricciones de llave foránea. Tres FK son
+compuestas, por lo que se representan 23 pares de columnas.
 
-Los conteos son del respaldo, no del servidor actual. Las tablas de ampliación
-muestran `s/d`: no se supone que estén vacías ni se confirma su instalación.
-Solo dibuja claves foráneas declaradas; la jerarquía de categorías se explica
-como pendiente porque su FK no aparece en el respaldo. No incluye filas de
-usuarios, contraseñas, datos de pago ni credenciales de conexión.
+Los conteos provienen de las sentencias INSERT del respaldo; no son consultas
+al servidor actual. Solo se incorporan metadatos y conteos, no los valores de
+las filas. Las relaciones corresponden a las FK declaradas en el SQL y sus
+cardinalidades reflejan restricciones del esquema. UQ puede indicar pertenencia
+a un índice compuesto; consultar el detalle para ver sus columnas.
 
-Las flechas apuntan desde la tabla que contiene la FK hacia la referenciada;
-no representan una notación completa de cardinalidad EER. Los catálogos de
-estados conservan la interpretación provisional del diseño SQL.
+## Archivos y regeneración
 
-## Regeneración
+- `modelo-eer.html`: visor final autocontenido.
+- `modelo-eer.template.html`: plantilla editable de diseño y comportamiento.
+- `generar_modelo_eer.py`: extrae el esquema y los conteos e incorpora los datos
+  en la plantilla.
 
 Desde la raíz del repositorio:
 
 ```powershell
-python practica03/scripts/generate_eer_explorer.py
+python practica03/generar_modelo_eer.py
 ```
 
-El generador usa `scripts/eer_explorer_template.html` y sobrescribe solamente
-`explorador-eer.html`. El parser admite la sintaxis usada en los archivos actuales;
-no es un parser general de MySQL. Para reflejar cambios en el servidor, actualizar
-las fuentes y revisar el generador antes de regenerar.
+El generador sobrescribe `modelo-eer.html` y escribe el modelo complementario
+de Archify en `.archify/erd-db-test/candidate.json`. Prefiere explícitamente
+`respaldo10_20.sql`; solo si falta selecciona el archivo `.sql` de `backups/`
+con fecha de modificación más reciente. Para usar un respaldo posterior mientras
+exista el del 20/10, actualizar la variable `preferred` antes de regenerar.
+El parser está adaptado a la sintaxis del respaldo del proyecto.
 
-Validación realizada: sintaxis JavaScript con Node, referencias DOM, 16 tablas,
-137 columnas, 20 FK con columnas válidas y 45 triggers documentados. Pendiente
-prueba visual e interacción en navegador y contraste con el servidor MySQL local.
+El visor fue comprobado en Edge mediante 20 verificaciones, incluyendo búsqueda,
+filtros, navegación, arrastre, FK compuestas y generación de SVG/PNG. Se revisaron
+capturas de escritorio. No se conectó a MySQL para contrastar el estado actual.
