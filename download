@@ -1,0 +1,23 @@
+# Copiar como .env y completar antes de iniciar los contenedores.
+# Usar un nombre de proyecto distinto al de los companeros del VPS.
+COMPOSE_PROJECT_NAME=dbnube-240687
+
+# Mantener las bases locales hasta configurar el acceso externo autorizado.
+# Usar la IP del VPS para DB_BIND_ADDRESS solo cuando exista un filtro de red
+# compatible con Docker. PgAdmin permanece local como el de los companeros.
+DB_BIND_ADDRESS=127.0.0.1
+PGADMIN_BIND_ADDRESS=127.0.0.1
+
+# PostgreSQL: ultimos cinco digitos de tu matricula (1-65534).
+# MySQL: ese valor mas uno (2-65535).
+PG_HOST_PORT=40687
+MYSQL_HOST_PORT=40688
+
+# Elegir un puerto libre distinto al de tus companeros.
+PGADMIN_HOST_PORT=54687
+
+# No poner secretos reales en GitHub. Este archivo es solo un ejemplo.
+POSTGRES_PASSWORD=
+MYSQL_ROOT_PASSWORD=
+PGADMIN_EMAIL=
+PGADMIN_PASSWORD=
