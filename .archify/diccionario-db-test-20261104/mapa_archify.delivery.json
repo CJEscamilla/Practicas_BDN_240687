@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "bd1d531b-c234-44e8-a15d-f9a3969a051e",
+  "status": "current",
+  "command": "deliver",
+  "type": "explainer",
+  "input": "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\candidate.archify.md",
+  "output": "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\mapa_archify.html",
+  "specification": {
+    "sha256": "948561ed0dd21dcf9abe5e414f55f347a5d06a04cbf52d225005cefbfa20a771",
+    "bytes": 1671
+  },
+  "artifact": {
+    "sha256": "0d4e4b6df1f31404f58ce5a498283f4094ce9044453d4301917e056400be18bd",
+    "bytes": 546999
+  },
+  "explainer": {
+    "preparedSha256": "864daf4acc2a0888a6b4673a28e72b5aeda3ff3bb0dfae1164b57748f17d5d83",
+    "dependencies": [
+      {
+        "kind": "diagram-spec",
+        "id": "compra-modelo",
+        "inline": true,
+        "sha256": "79c216dd72d70ea4dd45e218e9bb4d40d5dd0540d93d715c0e2323e5374443f6",
+        "bytes": 1273
+      }
+    ]
+  }
+}

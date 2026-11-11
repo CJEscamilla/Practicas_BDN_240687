@@ -1,0 +1,2 @@
+# Preserve the SQL source bytes so its documented SHA-256 is reproducible on Windows.
+practica03/backups/dicionario.sql -text

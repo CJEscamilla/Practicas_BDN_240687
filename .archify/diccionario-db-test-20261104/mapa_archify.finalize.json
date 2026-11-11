@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "explainer",
+  "quality": "showcase",
+  "startedAt": "2026-11-04T17:49:42.271Z",
+  "specification": {
+    "path": "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\candidate.archify.md",
+    "sha256": "948561ed0dd21dcf9abe5e414f55f347a5d06a04cbf52d225005cefbfa20a771",
+    "bytes": 1671
+  },
+  "artifact": {
+    "path": "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\mapa_archify.html",
+    "sha256": "0d4e4b6df1f31404f58ce5a498283f4094ce9044453d4301917e056400be18bd",
+    "bytes": 546999
+  },
+  "stages": {
+    "browser-check": {
+      "status": "not-run",
+      "execution": "not-requested"
+    },
+    "validate": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": null,
+      "execution": "embedded-in-deliver",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\escam\\.codex\\skills\\archify\\bin\\archify.mjs",
+        "deliver",
+        "explainer",
+        "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\candidate.archify.md",
+        "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\mapa_archify.html",
+        "--quality",
+        "showcase",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": true,
+        "command": "validate",
+        "specification": {
+          "sha256": "948561ed0dd21dcf9abe5e414f55f347a5d06a04cbf52d225005cefbfa20a771",
+          "bytes": 1671
+        },
+        "validation": {
+          "checksPassed": 4,
+          "checkCount": 4,
+          "compositionProfile": "showcase",
+          "compositionStatus": "pass",
+          "errors": 0,
+          "warnings": 0
+        }
+      }
+    },
+    "deliver": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 716,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\escam\\.codex\\skills\\archify\\bin\\archify.mjs",
+        "deliver",
+        "explainer",
+        "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\candidate.archify.md",
+        "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\mapa_archify.html",
+        "--quality",
+        "showcase",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "receiptId": "bd1d531b-c234-44e8-a15d-f9a3969a051e",
+        "ok": true,
+        "command": "deliver",
+        "type": "explainer",
+        "input": "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\candidate.archify.md",
+        "output": "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\mapa_archify.html",
+        "explainer": {
+          "preparedSha256": "864daf4acc2a0888a6b4673a28e72b5aeda3ff3bb0dfae1164b57748f17d5d83",
+          "dependencies": [
+            {
+              "kind": "diagram-spec",
+              "id": "compra-modelo",
+              "inline": true,
+              "sha256": "79c216dd72d70ea4dd45e218e9bb4d40d5dd0540d93d715c0e2323e5374443f6",
+              "bytes": 1273
+            }
+          ]
+        },
+        "specification": {
+          "sha256": "948561ed0dd21dcf9abe5e414f55f347a5d06a04cbf52d225005cefbfa20a771",
+          "bytes": 1671
+        },
+        "artifact": {
+          "sha256": "0d4e4b6df1f31404f58ce5a498283f4094ce9044453d4301917e056400be18bd",
+          "bytes": 546999
+        },
+        "validation": {
+          "checksPassed": 4,
+          "checkCount": 4,
+          "compositionProfile": "showcase",
+          "compositionStatus": "pass",
+          "errors": 0,
+          "warnings": 0
+        },
+        "update": {
+          "status": "unavailable",
+          "installedVersion": null,
+          "availableVersion": null,
+          "releaseNotes": null,
+          "checkedAt": null,
+          "source": null,
+          "noticeRequired": false,
+          "noticeText": null,
+          "reason": "disabled"
+        }
+      }
+    },
+    "check": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 289,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\escam\\.codex\\skills\\archify\\bin\\archify.mjs",
+        "check",
+        "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\mapa_archify.html",
+        "--require-provenance"
+      ],
+      "receipt": {
+        "ok": true,
+        "file": "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\mapa_archify.html",
+        "family": "explainer",
+        "artifact": {
+          "sha256": "0d4e4b6df1f31404f58ce5a498283f4094ce9044453d4301917e056400be18bd",
+          "bytes": 546999
+        },
+        "checks": [
+          {
+            "name": "explainer_structure",
+            "ok": true,
+            "details": [
+              "28 unique DOM IDs"
+            ]
+          },
+          {
+            "name": "explainer_payload_identity",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "explainer_dependencies",
+            "ok": true,
+            "details": [
+              "1 frozen dependencies"
+            ]
+          },
+          {
+            "name": "explainer_native_diagrams",
+            "ok": true,
+            "details": [
+              "compra-modelo: pass"
+            ]
+          }
+        ],
+        "composition": {
+          "schemaVersion": 1,
+          "profile": "showcase",
+          "status": "pass",
+          "summary": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "issues": [],
+          "nativeDiagrams": [
+            {
+              "id": "compra-modelo",
+              "receipt": {
+                "ok": true,
+                "file": "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\tmp\\archify-explainer-check-Nx4jxf\\child.html",
+                "artifact": {
+                  "sha256": "d0d8d7d2056d8a99405ec82ff435ee654166780335f25f196e9cfdffd65fa214",
+                  "bytes": 842294
+                },
+                "checks": [
+                  {
+                    "name": "single_svg",
+                    "ok": true,
+                    "details": [
+                      "found 1 <svg> block(s)"
+                    ]
+                  },
+                  {
+                    "name": "finite_svg",
+                    "ok": true,
+                    "details": []
+                  },
+                  {
+                    "name": "orthogonal_arrows",
+                    "ok": true,
+                    "details": []
+                  },
+                  {
+                    "name": "label_route_clearance",
+                    "ok": true,
+                    "details": []
+                  },
+                  {
+                    "name": "relationship_crossings",
+                    "ok": true,
+                    "details": []
+                  },
+                  {
+                    "name": "relationship_corridors",
+                    "ok": true,
+                    "details": []
+                  },
+                  {
+                    "name": "container_border_runs",
+                    "ok": true,
+                    "details": []
+                  },
+                  {
+                    "name": "route_rhythm",
+                    "ok": true,
+                    "details": []
+                  },
+                  {
+                    "name": "legend_clearance",
+                    "ok": true,
+                    "details": []
+                  }
+                ],
+                "composition": {
+                  "schemaVersion": 1,
+                  "profile": "showcase",
+                  "status": "pass",
+                  "summary": {
+                    "errors": 0,
+                    "warnings": 0
+                  },
+                  "metrics": {
+                    "properCrossings": 0,
+                    "resolvedCrossovers": 0,
+                    "ambiguousCorridors": 0,
+                    "arrowheadCollisions": 0,
+                    "containerBorderRuns": 0,
+                    "labelRouteClearanceIssues": 0,
+                    "labelCanvasOverflowIssues": 0,
+                    "minLabelRouteClearance": 12.3,
+                    "desktopReadabilityIssues": 0,
+                    "viewportHeightIssues": 0,
+                    "minProjectedNodeTextPx": 7.500000000000002,
+                    "maxBends": 4,
+                    "routesOverSuggestedBends": 1,
+                    "maxStretch": 1.219,
+                    "routesOverSuggestedStretch": 0,
+                    "minSegmentPx": 16,
+                    "minInteriorSegmentPx": 51,
+                    "shortSegmentCount": 0,
+                    "shortEndpointSegmentCount": 0,
+                    "shortInteriorSegmentCount": 0,
+                    "microSegmentCount": 0
+                  },
+                  "suggestedLimits": {
+                    "bendsPerRelationship": 2,
+                    "stretch": 1.35,
+                    "segmentPx": 16,
+                    "microSegmentPx": 8
+                  },
+                  "routeReview": {
+                    "crossings": [],
+                    "detours": [
+                      {
+                        "relationship": {
+                          "id": "pedido-to-usuario-1",
+                          "from": "pedido",
+                          "to": "usuario",
+                          "label": "compra",
+                          "collectionIndex": 1,
+                          "artifactIndex": 2
+                        },
+                        "bends": 4,
+                        "stretch": 1.219
+                      }
+                    ]
+                  },
+                  "leadingSpace": {
+                    "measured": false,
+                    "reviewSuggested": false
+                  },
+                  "desktopReadability": {
+                    "budgetBasis": "recognized-declared-wide",
+                    "readerContract": "declared-wide-v1",
+                    "availableDiagramWidth": 1113.3333333333335,
+                    "actualBudgetPx": 1113.3333333333335,
+                    "actualReaderWidth": 1143.3333333333335,
+                    "desiredReaderWidth": 1143.3333333333335,
+                    "viewportCap": 1376,
+                    "limit": "source-size",
+                    "requestedTargetPx": 7.5,
+                    "requestedTargetMet": true,
+                    "hardFloorPx": 6,
+                    "hardFloorMet": true,
+                    "minimumOwner": {
+                      "kind": "node",
+                      "id": "usuario"
+                    },
+                    "minimumSourceTextPx": 9,
+                    "minimumProjectedTextPx": 7.500000000000002,
+                    "semanticTextCount": 28
+                  },
+                  "issues": []
+                }
+              }
+            }
+          ]
+        },
+        "diagnostics": [],
+        "provenance": "current",
+        "deliveryReceiptId": "bd1d531b-c234-44e8-a15d-f9a3969a051e"
+      }
+    }
+  },
+  "browserCheck": {
+    "requested": false,
+    "ran": false
+  },
+  "diagnostics": [],
+  "evidence": {
+    "receipt": "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\mapa_archify.finalize.json",
+    "summaryReceipt": "C:\\Optativa\\Practicas_BDN_240687\\.archify\\diccionario-db-test-20261104\\mapa_archify.finalize-summary.json"
+  },
+  "visualReview": "not-requested",
+  "finishedAt": "2026-11-04T17:49:43.679Z",
+  "durationMs": 1407,
+  "update": {
+    "status": "unavailable",
+    "installedVersion": null,
+    "availableVersion": null,
+    "releaseNotes": null,
+    "checkedAt": null,
+    "source": null,
+    "noticeRequired": false,
+    "noticeText": null,
+    "reason": "cache-unavailable"
+  }
+}
