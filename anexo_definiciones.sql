@@ -1,7 +1,7 @@
 -- ANEXO DE LECTURA: no usar para restaurar la base.
 -- Definiciones del respaldo; se omiten filas, CREATE DATABASE y cuentas DEFINER.
 -- SQL SECURITY DEFINER indica un modo de ejecución, no una cuenta.
--- Fuente: dicionario.sql; SHA-256: 9f7afa933a8233c74d29697432df93a3df6f2401f8f9085b31405bfe3036233f
+-- Fuente: db_test_2026-11-12_usuarios.sql; SHA-256: e375ff3ca3ce32dbcad20d65e2d7b22d130e292159f7d30013f47f971ae5c512
 DELIMITER ;;
 CREATE TABLE `tb_buyer_orders` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
@@ -212,7 +212,7 @@ CREATE TABLE `tb_logs` (
   PRIMARY KEY (`ID`),
   KEY `idx_logs_search` (`table_name`,`operation`),
   KEY `idx_logs_table_op` (`table_name`,`operation`)
-) ENGINE=InnoDB AUTO_INCREMENT=56729 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;;
+) ENGINE=InnoDB AUTO_INCREMENT=71729 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;;
 CREATE TABLE `tb_order_cancellations` (
   `ID` int unsigned NOT NULL AUTO_INCREMENT,
   `order_ID` int unsigned NOT NULL,
@@ -355,7 +355,7 @@ CREATE TABLE `tb_people` (
   PRIMARY KEY (`person_ID`),
   KEY `idx_people_user_ID` (`user_ID`),
   CONSTRAINT `fk_people_user` FOREIGN KEY (`user_ID`) REFERENCES `tb_users` (`ID`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;;
+) ENGINE=InnoDB AUTO_INCREMENT=7501 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;;
 CREATE   TRIGGER `trg_after_insert_tb_people` AFTER INSERT ON `tb_people` FOR EACH ROW BEGIN
   INSERT INTO `tb_logs` (`table_name`, `operation`, `db_users`, `description`)
   VALUES ('tb_people', 'Create', USER(), CONCAT('Registro creado. ID=', NEW.`person_ID`, ', datos=', JSON_OBJECT('person_ID', NEW.`person_ID` , 'user_ID', NEW.`user_ID` , 'title', NEW.`title` , 'given_names', NEW.`given_names` , 'family_names', NEW.`family_names` , 'birth_date', NEW.`birth_date` , 'gender_ID', NEW.`gender_ID` , 'phone', NEW.`phone` , 'country_code', NEW.`country_code` , 'status', CAST(NEW.`status` AS UNSIGNED) , 'creation_date', NEW.`creation_date` , 'last_update', NEW.`last_update` )));
@@ -617,7 +617,7 @@ CREATE TABLE `tb_users` (
   PRIMARY KEY (`ID`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `nickname` (`nickname`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;;
+) ENGINE=InnoDB AUTO_INCREMENT=7510 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;;
 CREATE   TRIGGER `trg_after_insert_tb_users` AFTER INSERT ON `tb_users` FOR EACH ROW BEGIN
   INSERT INTO `tb_logs` (`table_name`, `operation`, `db_users`, `description`)
   VALUES ('tb_users', 'Create', USER(), CONCAT('Registro creado. ID=', NEW.`ID`, ', datos=', JSON_OBJECT('ID', NEW.`ID` , 'email', NEW.`email` , 'nickname', NEW.`nickname` , 'creation_date', NEW.`creation_date` , 'last_update', NEW.`last_update` , 'last_login', NEW.`last_login` )));
@@ -1415,6 +1415,17 @@ CREATE   TRIGGER `trg_after_delete_tbd_users_wishilst_products` AFTER DELETE ON 
         )
     );
 END;;
+CREATE FUNCTION `fn_sim_apellido`() RETURNS varchar(30) CHARSET utf8mb4
+    NO SQL
+RETURN ELT(1+FLOOR(RAND()*8),'Smith','Johnson','Brown','Garcia','Lopez','Wilson','Martinez','Taylor');;
+CREATE FUNCTION `fn_sim_nombre`(p_genero CHAR(1)) RETURNS varchar(30) CHARSET utf8mb4
+    NO SQL
+RETURN IF(p_genero = 'H',
+  ELT(1+FLOOR(RAND()*8),'James','John','Robert','Michael','David','Daniel','Carlos','Luis'),
+  ELT(1+FLOOR(RAND()*8),'Mary','Patricia','Linda','Maria','Ana','Sofia','Laura','Emma'));;
+CREATE FUNCTION `fn_sim_pais`() RETURNS char(2) CHARSET utf8mb4
+    NO SQL
+RETURN ELT(1+FLOOR(RAND()*8),'US','MX','CA','ES','BR','AR','CO','FR');;
 CREATE PROCEDURE `sp_deactivate_user`(
     IN p_user_id INT UNSIGNED
 )
@@ -1554,6 +1565,56 @@ BEGIN
     SET status = b'1'
     WHERE ID = p_product_id;
 
+END;;
+CREATE PROCEDURE `sp_simular_usuarios`(
+  IN p_lote CHAR(32), IN p_test TINYINT, IN p_cantidad INT
+)
+    MODIFIES SQL DATA
+    SQL SECURITY INVOKER
+BEGIN
+  DECLARE i INT DEFAULT 1;
+  DECLARE v_usuario INT;
+  DECLARE v_genero CHAR(1);
+  DECLARE v_estado INT;
+  DECLARE v_inicio DATETIME(6);
+  DECLARE v_nick VARCHAR(100);
+  DECLARE EXIT HANDLER FOR SQLEXCEPTION
+  BEGIN
+    ROLLBACK;
+    RESIGNAL;
+  END;
+
+  IF p_lote IS NULL OR p_lote NOT REGEXP '^[0-9a-f]{32}$'
+     OR p_test IS NULL OR p_test NOT IN (1,2,3)
+     OR p_cantidad IS NULL OR p_cantidad < 1 OR p_cantidad > 5000 THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Parametros de simulacion invalidos';
+  END IF;
+  IF CURRENT_ROLE() NOT REGEXP '(^|,)[[:space:]]*`?superadmin`?@' THEN
+    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='El rol superadmin debe estar activo';
+  END IF;
+  SET v_inicio = NOW(6);
+  START TRANSACTION;
+  WHILE i <= p_cantidad DO
+    SET v_genero = IF(p_test = 1 OR RAND() < 0.5, 'H', 'M');
+    SET v_estado = IF(p_test = 3, RAND() < 0.8, 1);
+    SET v_nick = CONCAT('sim', p_lote, 't', p_test, 'n', LPAD(i,5,'0'));
+    INSERT INTO tb_users(email,nickname,password)
+    VALUES(CONCAT(v_nick,'@example.invalid'),v_nick,
+           CONCAT('SIMULACION-NO-LOGIN-', UUID()));
+    SET v_usuario = LAST_INSERT_ID();
+    INSERT INTO tb_people(user_ID,given_names,family_names,birth_date,gender_ID,country_code,status)
+    VALUES(v_usuario, fn_sim_nombre(v_genero), fn_sim_apellido(),
+      DATE_ADD(DATE_SUB(CURDATE(), INTERVAL 36 YEAR), INTERVAL
+        (1 + FLOOR(RAND() * DATEDIFF(DATE_SUB(CURDATE(), INTERVAL 19 YEAR),
+                                     DATE_SUB(CURDATE(), INTERVAL 36 YEAR)))) DAY),
+      v_genero, IF(p_test=1,'US',fn_sim_pais()), v_estado);
+    SET i = i + 1;
+  END WHILE;
+  COMMIT;
+  SELECT p_lote AS lote, p_test AS test, p_cantidad AS insertados,
+         v_inicio AS inicio, NOW(6) AS fin,
+         TIMESTAMPDIFF(MICROSECOND,v_inicio,NOW(6))/1000000 AS segundos,
+         USER() AS cuenta_conectada, CURRENT_ROLE() AS roles_activos;
 END;;
 CREATE PROCEDURE `sp_soft_delete_product`(
     IN p_product_id INT UNSIGNED

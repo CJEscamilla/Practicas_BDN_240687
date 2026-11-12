@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "source": {
-    "file": "dicionario.sql",
-    "sha256": "9f7afa933a8233c74d29697432df93a3df6f2401f8f9085b31405bfe3036233f",
+    "file": "db_test_2026-11-12_usuarios.sql",
+    "sha256": "e375ff3ca3ce32dbcad20d65e2d7b22d130e292159f7d30013f47f971ae5c512",
     "serverVersion": "8.4.13",
     "database": "db_test",
     "charset": "utf8mb4",
@@ -1276,7 +1276,7 @@
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
       "line": 350,
-      "rows": 56728,
+      "rows": 71728,
       "domain": "Auditoría",
       "description": "Bitácora de operaciones registradas en el modelo.",
       "descriptionEvidence": "Interpretación basada en nombres y relaciones; no es una regla declarada."
@@ -1728,7 +1728,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 400,
+      "line": 405,
       "rows": 0,
       "domain": "Posventa",
       "description": "Solicitudes y seguimiento de cancelaciones de pedidos.",
@@ -1939,7 +1939,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 492,
+      "line": 497,
       "rows": 0,
       "domain": "Pagos",
       "description": "Métodos de pago disponibles.",
@@ -2563,7 +2563,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 574,
+      "line": 579,
       "rows": 0,
       "domain": "Pagos",
       "description": "Operaciones de pago o reembolso y respuestas del proveedor.",
@@ -2994,7 +2994,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 674,
+      "line": 679,
       "rows": 0,
       "domain": "Pagos",
       "description": "Pagos asociados a pedidos.",
@@ -3386,8 +3386,8 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 766,
-      "rows": 0,
+      "line": 771,
+      "rows": 7500,
       "domain": "Identidad",
       "description": "Datos de personas vinculadas con usuarios.",
       "descriptionEvidence": "Interpretación basada en nombres y relaciones; no es una regla declarada."
@@ -3693,7 +3693,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 855,
+      "line": 861,
       "rows": 15008,
       "domain": "Catálogo",
       "description": "Catálogo de productos, precio y existencias.",
@@ -4356,7 +4356,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 946,
+      "line": 952,
       "rows": 0,
       "domain": "Posventa",
       "description": "Reembolsos asociados a pagos, cancelaciones o devoluciones.",
@@ -4890,7 +4890,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 1087,
+      "line": 1093,
       "rows": 0,
       "domain": "Posventa",
       "description": "Solicitudes y seguimiento de devoluciones de pedidos.",
@@ -5618,7 +5618,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 1182,
+      "line": 1188,
       "rows": 0,
       "domain": "Posventa",
       "description": "Envíos, dirección de entrega y seguimiento.",
@@ -6155,7 +6155,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 1285,
+      "line": 1291,
       "rows": 0,
       "domain": "Identidad",
       "description": "Direcciones asociadas a usuarios.",
@@ -6409,8 +6409,8 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 1426,
-      "rows": 7,
+      "line": 1432,
+      "rows": 7507,
       "domain": "Identidad",
       "description": "Cuentas de usuario del sistema.",
       "descriptionEvidence": "Interpretación basada en nombres y relaciones; no es una regla declarada."
@@ -6593,7 +6593,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 1511,
+      "line": 1518,
       "rows": 0,
       "domain": "Compra",
       "description": "Catálogo de estados o tipos de artículos del carrito.",
@@ -6831,7 +6831,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 1631,
+      "line": 1638,
       "rows": 100,
       "domain": "Catálogo",
       "description": "Categorías del catálogo de comercio electrónico.",
@@ -7015,7 +7015,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 1762,
+      "line": 1769,
       "rows": 0,
       "domain": "Compra",
       "description": "Catálogo de estados o tipos de artículos de pedido.",
@@ -7226,7 +7226,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 1882,
+      "line": 1889,
       "rows": 0,
       "domain": "Pagos",
       "description": "Catálogo de tipos de métodos de pago.",
@@ -7478,7 +7478,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 2007,
+      "line": 2014,
       "rows": 0,
       "domain": "Posventa",
       "description": "Artículos asociados a una cancelación.",
@@ -7818,7 +7818,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 2092,
+      "line": 2099,
       "rows": 0,
       "domain": "Compra",
       "description": "Productos y cantidades de cada carrito.",
@@ -8320,7 +8320,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 2228,
+      "line": 2235,
       "rows": 0,
       "domain": "Compra",
       "description": "Detalle de productos e importes de un pedido.",
@@ -8594,7 +8594,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 2394,
+      "line": 2401,
       "rows": 41713,
       "domain": "Catálogo",
       "description": "Asociaciones entre productos y categorías.",
@@ -8927,7 +8927,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 2525,
+      "line": 2532,
       "rows": 0,
       "domain": "Catálogo",
       "description": "Asociaciones entre productos y usuarios proveedores.",
@@ -9318,7 +9318,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 2664,
+      "line": 2671,
       "rows": 0,
       "domain": "Posventa",
       "description": "Artículos asociados a una devolución.",
@@ -9739,7 +9739,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 2755,
+      "line": 2762,
       "rows": 0,
       "domain": "Pagos",
       "description": "Métodos de pago vinculados a usuarios.",
@@ -10013,7 +10013,7 @@
       "engine": "InnoDB",
       "charset": "utf8mb4",
       "collation": "utf8mb4_0900_ai_ci",
-      "line": 2892,
+      "line": 2899,
       "rows": 0,
       "domain": "Catálogo",
       "description": "Asociaciones entre usuarios y productos de su lista de deseos.",
@@ -10028,7 +10028,7 @@
         "tb_logs"
       ],
       "security": "DEFINER",
-      "line": 3839,
+      "line": 3967,
       "columns": [
         "log_id",
         "category_id",
@@ -10047,7 +10047,7 @@
         "tb_logs"
       ],
       "security": "DEFINER",
-      "line": 3857,
+      "line": 3985,
       "columns": [
         "log_id",
         "operation",
@@ -10063,7 +10063,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 3875,
+      "line": 4003,
       "columns": [
         "log_id",
         "table_name",
@@ -10084,7 +10084,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 3893,
+      "line": 4021,
       "columns": [
         "log_id",
         "table_name",
@@ -10105,7 +10105,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 3911,
+      "line": 4039,
       "columns": [
         "log_id",
         "table_name",
@@ -10126,7 +10126,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 3929,
+      "line": 4057,
       "columns": [
         "log_id",
         "table_name",
@@ -10147,7 +10147,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 3947,
+      "line": 4075,
       "columns": [
         "log_id",
         "table_name",
@@ -10168,7 +10168,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 3965,
+      "line": 4093,
       "columns": [
         "log_id",
         "table_name",
@@ -10189,7 +10189,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 3983,
+      "line": 4111,
       "columns": [
         "log_id",
         "table_name",
@@ -10210,7 +10210,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4001,
+      "line": 4129,
       "columns": [
         "log_id",
         "table_name",
@@ -10231,7 +10231,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4019,
+      "line": 4147,
       "columns": [
         "log_id",
         "table_name",
@@ -10252,7 +10252,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4037,
+      "line": 4165,
       "columns": [
         "log_id",
         "table_name",
@@ -10273,7 +10273,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4055,
+      "line": 4183,
       "columns": [
         "log_id",
         "table_name",
@@ -10294,7 +10294,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4073,
+      "line": 4201,
       "columns": [
         "log_id",
         "table_name",
@@ -10315,7 +10315,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4091,
+      "line": 4219,
       "columns": [
         "log_id",
         "table_name",
@@ -10336,7 +10336,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4109,
+      "line": 4237,
       "columns": [
         "log_id",
         "table_name",
@@ -10357,7 +10357,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4127,
+      "line": 4255,
       "columns": [
         "log_id",
         "table_name",
@@ -10378,7 +10378,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4145,
+      "line": 4273,
       "columns": [
         "log_id",
         "table_name",
@@ -10399,7 +10399,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4163,
+      "line": 4291,
       "columns": [
         "log_id",
         "table_name",
@@ -10420,7 +10420,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4181,
+      "line": 4309,
       "columns": [
         "log_id",
         "table_name",
@@ -10441,7 +10441,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4199,
+      "line": 4327,
       "columns": [
         "log_id",
         "table_name",
@@ -10462,7 +10462,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4217,
+      "line": 4345,
       "columns": [
         "log_id",
         "table_name",
@@ -10483,7 +10483,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4235,
+      "line": 4363,
       "columns": [
         "log_id",
         "table_name",
@@ -10504,7 +10504,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4253,
+      "line": 4381,
       "columns": [
         "log_id",
         "table_name",
@@ -10525,7 +10525,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4271,
+      "line": 4399,
       "columns": [
         "log_id",
         "table_name",
@@ -10546,7 +10546,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4289,
+      "line": 4417,
       "columns": [
         "log_id",
         "table_name",
@@ -10567,7 +10567,7 @@
         "tb_logs"
       ],
       "security": "INVOKER",
-      "line": 4307,
+      "line": 4435,
       "columns": [
         "log_id",
         "table_name",
@@ -10588,7 +10588,7 @@
         "tb_users"
       ],
       "security": "DEFINER",
-      "line": 4325,
+      "line": 4453,
       "columns": [
         "nickname",
         "email",
@@ -10817,7 +10817,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 440,
+      "line": 445,
       "warnings": []
     },
     {
@@ -10852,7 +10852,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 458,
+      "line": 463,
       "warnings": []
     },
     {
@@ -10882,7 +10882,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 476,
+      "line": 481,
       "warnings": []
     },
     {
@@ -10912,7 +10912,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 522,
+      "line": 527,
       "warnings": []
     },
     {
@@ -10947,7 +10947,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 540,
+      "line": 545,
       "warnings": []
     },
     {
@@ -10977,7 +10977,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 558,
+      "line": 563,
       "warnings": []
     },
     {
@@ -11007,7 +11007,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 622,
+      "line": 627,
       "warnings": []
     },
     {
@@ -11042,7 +11042,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 640,
+      "line": 645,
       "warnings": []
     },
     {
@@ -11072,7 +11072,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 658,
+      "line": 663,
       "warnings": []
     },
     {
@@ -11102,7 +11102,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 714,
+      "line": 719,
       "warnings": []
     },
     {
@@ -11137,7 +11137,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 732,
+      "line": 737,
       "warnings": []
     },
     {
@@ -11167,7 +11167,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 750,
+      "line": 755,
       "warnings": []
     },
     {
@@ -11197,7 +11197,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 803,
+      "line": 809,
       "warnings": []
     },
     {
@@ -11232,7 +11232,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 821,
+      "line": 827,
       "warnings": []
     },
     {
@@ -11262,7 +11262,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 839,
+      "line": 845,
       "warnings": []
     },
     {
@@ -11292,7 +11292,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 894,
+      "line": 900,
       "warnings": []
     },
     {
@@ -11327,7 +11327,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 912,
+      "line": 918,
       "warnings": []
     },
     {
@@ -11357,7 +11357,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 930,
+      "line": 936,
       "warnings": []
     },
     {
@@ -11369,7 +11369,7 @@
       "actions": [],
       "columnUses": [],
       "containsSignal": true,
-      "line": 997,
+      "line": 1003,
       "warnings": []
     },
     {
@@ -11399,7 +11399,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1016,
+      "line": 1022,
       "warnings": []
     },
     {
@@ -11418,7 +11418,7 @@
       ],
       "columnUses": [],
       "containsSignal": true,
-      "line": 1034,
+      "line": 1040,
       "warnings": []
     },
     {
@@ -11453,7 +11453,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1053,
+      "line": 1059,
       "warnings": []
     },
     {
@@ -11483,7 +11483,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1071,
+      "line": 1077,
       "warnings": []
     },
     {
@@ -11513,7 +11513,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1130,
+      "line": 1136,
       "warnings": []
     },
     {
@@ -11548,7 +11548,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1148,
+      "line": 1154,
       "warnings": []
     },
     {
@@ -11578,7 +11578,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1166,
+      "line": 1172,
       "warnings": []
     },
     {
@@ -11608,7 +11608,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1233,
+      "line": 1239,
       "warnings": []
     },
     {
@@ -11643,7 +11643,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1251,
+      "line": 1257,
       "warnings": []
     },
     {
@@ -11673,7 +11673,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1269,
+      "line": 1275,
       "warnings": []
     },
     {
@@ -11703,7 +11703,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1327,
+      "line": 1333,
       "warnings": []
     },
     {
@@ -11738,7 +11738,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1358,
+      "line": 1364,
       "warnings": []
     },
     {
@@ -11768,7 +11768,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1397,
+      "line": 1403,
       "warnings": []
     },
     {
@@ -11798,7 +11798,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1459,
+      "line": 1466,
       "warnings": []
     },
     {
@@ -11833,7 +11833,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1477,
+      "line": 1484,
       "warnings": []
     },
     {
@@ -11863,7 +11863,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1495,
+      "line": 1502,
       "warnings": []
     },
     {
@@ -11893,7 +11893,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1540,
+      "line": 1547,
       "warnings": []
     },
     {
@@ -11928,7 +11928,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1569,
+      "line": 1576,
       "warnings": []
     },
     {
@@ -11958,7 +11958,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1604,
+      "line": 1611,
       "warnings": []
     },
     {
@@ -11988,7 +11988,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1663,
+      "line": 1670,
       "warnings": []
     },
     {
@@ -12023,7 +12023,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1694,
+      "line": 1701,
       "warnings": []
     },
     {
@@ -12053,7 +12053,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1733,
+      "line": 1740,
       "warnings": []
     },
     {
@@ -12083,7 +12083,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1791,
+      "line": 1798,
       "warnings": []
     },
     {
@@ -12118,7 +12118,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1820,
+      "line": 1827,
       "warnings": []
     },
     {
@@ -12148,7 +12148,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1855,
+      "line": 1862,
       "warnings": []
     },
     {
@@ -12178,7 +12178,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1912,
+      "line": 1919,
       "warnings": []
     },
     {
@@ -12213,7 +12213,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1942,
+      "line": 1949,
       "warnings": []
     },
     {
@@ -12243,7 +12243,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 1979,
+      "line": 1986,
       "warnings": []
     },
     {
@@ -12273,7 +12273,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2040,
+      "line": 2047,
       "warnings": []
     },
     {
@@ -12308,7 +12308,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2058,
+      "line": 2065,
       "warnings": []
     },
     {
@@ -12338,7 +12338,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2076,
+      "line": 2083,
       "warnings": []
     },
     {
@@ -12368,7 +12368,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2129,
+      "line": 2136,
       "warnings": []
     },
     {
@@ -12403,7 +12403,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2160,
+      "line": 2167,
       "warnings": []
     },
     {
@@ -12433,7 +12433,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2199,
+      "line": 2206,
       "warnings": []
     },
     {
@@ -12463,7 +12463,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2271,
+      "line": 2278,
       "warnings": []
     },
     {
@@ -12498,7 +12498,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2308,
+      "line": 2315,
       "warnings": []
     },
     {
@@ -12528,7 +12528,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2359,
+      "line": 2366,
       "warnings": []
     },
     {
@@ -12558,7 +12558,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2430,
+      "line": 2437,
       "warnings": []
     },
     {
@@ -12593,7 +12593,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2460,
+      "line": 2467,
       "warnings": []
     },
     {
@@ -12623,7 +12623,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2497,
+      "line": 2504,
       "warnings": []
     },
     {
@@ -12653,7 +12653,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2561,
+      "line": 2568,
       "warnings": []
     },
     {
@@ -12688,7 +12688,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2593,
+      "line": 2600,
       "warnings": []
     },
     {
@@ -12718,7 +12718,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2634,
+      "line": 2641,
       "warnings": []
     },
     {
@@ -12748,7 +12748,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2703,
+      "line": 2710,
       "warnings": []
     },
     {
@@ -12783,7 +12783,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2721,
+      "line": 2728,
       "warnings": []
     },
     {
@@ -12813,7 +12813,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2739,
+      "line": 2746,
       "warnings": []
     },
     {
@@ -12843,7 +12843,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2793,
+      "line": 2800,
       "warnings": []
     },
     {
@@ -12878,7 +12878,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2824,
+      "line": 2831,
       "warnings": []
     },
     {
@@ -12908,7 +12908,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2863,
+      "line": 2870,
       "warnings": []
     },
     {
@@ -12938,7 +12938,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2925,
+      "line": 2932,
       "warnings": []
     },
     {
@@ -12973,7 +12973,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2955,
+      "line": 2962,
       "warnings": []
     },
     {
@@ -13003,7 +13003,7 @@
         }
       ],
       "containsSignal": false,
-      "line": 2992,
+      "line": 2999,
       "warnings": []
     }
   ],
@@ -13013,6 +13013,9 @@
       "parameters": [
         "IN p_user_id INT UNSIGNED"
       ],
+      "returns": null,
+      "sqlDataAccess": "NO DECLARADO",
+      "usesRandom": false,
       "references": [
         "tb_users"
       ],
@@ -13033,7 +13036,7 @@
       ],
       "security": "NO DECLARADO",
       "containsTransaction": false,
-      "line": 3609,
+      "line": 3672,
       "warnings": [
         "UPDATE: tb_users.status no aparece en la definición de la tabla del respaldo."
       ]
@@ -13052,6 +13055,9 @@
         "IN p_phone VARCHAR(25)",
         "IN p_country_code CHAR(2)"
       ],
+      "returns": null,
+      "sqlDataAccess": "MODIFIES SQL DATA",
+      "usesRandom": false,
       "references": [
         "tb_people",
         "tb_users"
@@ -13095,7 +13101,7 @@
       ],
       "security": "NO DECLARADO",
       "containsTransaction": true,
-      "line": 3655,
+      "line": 3718,
       "warnings": [
         "INSERT: tb_users.status no aparece en la definición de la tabla del respaldo."
       ]
@@ -13105,6 +13111,9 @@
       "parameters": [
         "IN p_product_id INT UNSIGNED"
       ],
+      "returns": null,
+      "sqlDataAccess": "NO DECLARADO",
+      "usesRandom": false,
       "references": [
         "tb_products"
       ],
@@ -13125,14 +13134,72 @@
       ],
       "security": "NO DECLARADO",
       "containsTransaction": false,
-      "line": 3748,
+      "line": 3811,
       "warnings": []
+    },
+    {
+      "name": "sp_simular_usuarios",
+      "parameters": [
+        "IN p_lote CHAR(32)",
+        "IN p_test TINYINT",
+        "IN p_cantidad INT"
+      ],
+      "returns": null,
+      "sqlDataAccess": "MODIFIES SQL DATA",
+      "usesRandom": true,
+      "references": [
+        "tb_people",
+        "tb_users"
+      ],
+      "actions": [
+        {
+          "operation": "INSERT",
+          "table": "tb_users"
+        },
+        {
+          "operation": "INSERT",
+          "table": "tb_people"
+        }
+      ],
+      "columnUses": [
+        {
+          "table": "tb_users",
+          "columns": [
+            "email",
+            "nickname",
+            "password"
+          ],
+          "operation": "INSERT"
+        },
+        {
+          "table": "tb_people",
+          "columns": [
+            "user_ID",
+            "given_names",
+            "family_names",
+            "birth_date",
+            "gender_ID",
+            "country_code",
+            "status"
+          ],
+          "operation": "INSERT"
+        }
+      ],
+      "security": "INVOKER",
+      "containsTransaction": true,
+      "line": 3857,
+      "warnings": [],
+      "description": "Genera usuarios y personas para una simulación según el lote, el modo de prueba y la cantidad recibidos.",
+      "descriptionEvidence": "Interpretación revisada de la definición SQL; no se ejecutó."
     },
     {
       "name": "sp_soft_delete_product",
       "parameters": [
         "IN p_product_id INT UNSIGNED"
       ],
+      "returns": null,
+      "sqlDataAccess": "NO DECLARADO",
+      "usesRandom": false,
       "references": [
         "tb_products"
       ],
@@ -13153,11 +13220,62 @@
       ],
       "security": "NO DECLARADO",
       "containsTransaction": false,
-      "line": 3794,
+      "line": 3922,
       "warnings": []
     }
   ],
-  "functions": [],
+  "functions": [
+    {
+      "name": "fn_sim_apellido",
+      "parameters": [],
+      "returns": "varchar(30) CHARSET utf8mb4",
+      "sqlDataAccess": "NO SQL",
+      "usesRandom": true,
+      "references": [],
+      "actions": [],
+      "columnUses": [],
+      "security": "NO DECLARADO",
+      "containsTransaction": false,
+      "line": 3616,
+      "warnings": [],
+      "description": "Selecciona al azar un apellido de una lista integrada en la función.",
+      "descriptionEvidence": "Interpretación revisada de la definición SQL; no se ejecutó."
+    },
+    {
+      "name": "fn_sim_nombre",
+      "parameters": [
+        "p_genero CHAR(1)"
+      ],
+      "returns": "varchar(30) CHARSET utf8mb4",
+      "sqlDataAccess": "NO SQL",
+      "usesRandom": true,
+      "references": [],
+      "actions": [],
+      "columnUses": [],
+      "security": "NO DECLARADO",
+      "containsTransaction": false,
+      "line": 3634,
+      "warnings": [],
+      "description": "Selecciona al azar un nombre de una lista según el género recibido.",
+      "descriptionEvidence": "Interpretación revisada de la definición SQL; no se ejecutó."
+    },
+    {
+      "name": "fn_sim_pais",
+      "parameters": [],
+      "returns": "char(2) CHARSET utf8mb4",
+      "sqlDataAccess": "NO SQL",
+      "usesRandom": true,
+      "references": [],
+      "actions": [],
+      "columnUses": [],
+      "security": "NO DECLARADO",
+      "containsTransaction": false,
+      "line": 3654,
+      "warnings": [],
+      "description": "Selecciona al azar un código de país de una lista integrada en la función.",
+      "descriptionEvidence": "Interpretación revisada de la definición SQL; no se ejecutó."
+    }
+  ],
   "events": [],
   "limitations": [],
   "security": {
@@ -13169,13 +13287,14 @@
     "basis": "Tuplas VALUES declaradas en INSERT de nivel superior; no se ejecutó el respaldo.",
     "complete": true,
     "byTable": {
-      "tb_logs": 56728,
+      "tb_logs": 71728,
+      "tb_people": 7500,
       "tb_products": 15008,
-      "tb_users": 7,
+      "tb_users": 7507,
       "tbc_categories": 100,
       "tbd_products_categories": 41713
     },
-    "total": 113556
+    "total": 143556
   },
   "metrics": {
     "tables": 26,
@@ -13183,14 +13302,14 @@
     "foreignKeys": 39,
     "views": 28,
     "triggers": 77,
-    "procedures": 4,
-    "functions": 0,
+    "procedures": 5,
+    "functions": 3,
     "events": 0,
     "primaryIndexes": 26,
     "uniqueIndexes": 27,
     "otherIndexes": 35,
-    "rows": 113556,
-    "tablesWithRows": 5,
+    "rows": 143556,
+    "tablesWithRows": 6,
     "physicalIndexes": 88
   },
   "domainNames": [
