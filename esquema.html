@@ -1,9 +1,66 @@
-<!doctype html><html lang="es" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Mapa relacional interactivo de db_test"><title>Mapa relacional · DB_TEST</title><link rel="stylesheet" href="./assets/app.css"></head><body>
-<a class="skip" href="#contenido">Saltar al contenido</a><header class="topbar"><div class="bar-inner"><a class="brand" href="./index.html"><i aria-hidden="true"></i>UMBRELLA <span class="brand-divider">//</span> DB_TEST</a><nav class="nav" aria-label="Navegación principal"><a href="./index.html">Diccionario</a><a href="./esquema.html" aria-current="page">Mapa relacional</a><button id="theme" type="button">Tema</button></nav></div></header>
-<main class="wrap" id="contenido"><p id="app-error" class="error" role="alert" hidden></p><section class="hero"><div class="eyebrow">Mapa de integridad / Solo relaciones declaradas</div><h1>Mapa relacional<span style="color:var(--accent)">.</span></h1><p class="lead">Explora las entidades y sus claves foráneas. Selecciona una tabla para destacar sus conexiones; los dominios de negocio son una interpretación de la estructura.</p></section>
-<div class="section-title"><div><div class="eyebrow">01 / Resumen</div><h2>Alcance del esquema</h2></div></div><div id="metrics" class="kpis"></div>
-<div class="section-title"><div><div class="eyebrow">02 / Exploración</div><h2>Entidades y relaciones</h2></div></div>
-<div class="diagram-controls"><div class="control grow"><label for="query">Buscar entidad, campo o relación</label><input id="query" type="search" placeholder="Ej. tb_products, SKU o fk_order_buyer"></div><div class="control"><label for="domain">Dominio</label><select id="domain"><option value="">Todos los dominios</option></select></div><div class="control"><label for="layout">Distribución</label><select id="layout"><option value="classic">Clásico · por dominio</option><option value="fixed">Fijo · cuadrícula</option></select></div><button id="zoom-in" type="button" aria-label="Acercar diagrama">＋</button><button id="zoom-out" type="button" aria-label="Alejar diagrama">−</button><button id="fit" type="button">Ajustar</button><button id="lens" type="button" aria-pressed="false">Lente</button><button id="route" type="button" aria-pressed="false">Ruta</button><button id="export-svg" type="button">Exportar SVG</button><button id="export-png" type="button">Exportar PNG</button></div>
-<p class="subtle">Lente muestra la entidad elegida y sus vecinas. Ruta: activa el botón y selecciona dos entidades para resaltar el camino más corto. Las flechas apuntan a la tabla referenciada. Puedes arrastrar el fondo o usar + y − para navegar.</p>
-<div class="legend"><span><strong style="color:var(--amber)">PK</strong> primaria</span><span><strong style="color:var(--accent2)">FK</strong> foránea</span><span><strong style="color:var(--accent)">UQ*</strong> parte de clave única</span><span>1 / 0..1 en el destino; 0..N / 0..1 en el origen</span><span>FK compuesta = un conector</span></div>
-<div id="diagram-wrap" class="diagram-wrap"><svg id="diagram" role="group" aria-label="Diagrama interactivo de tablas y claves foráneas" tabindex="0"></svg></div><div id="diagram-detail" class="diagram-detail card" aria-live="polite">Selecciona una entidad para ver su volumen y sus relaciones.</div><p id="diagram-count" class="subtle" aria-live="polite"></p><p class="subtle">La exportación incluye el diagrama visible con el filtro y el tema activos. PK, UQ y NULL provienen del respaldo; la cardinalidad se deduce de las restricciones declaradas.</p><footer class="footer"><a href="./index.html">← Volver al diccionario</a> · El archivo no incorpora registros personales ni valores de las filas.</footer></main><script type="module" src="./assets/diagram.js?v=e375ff3c"></script></body></html>
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Mapa relacional de db_test generado con Archify">
+  <title>Mapa relacional · DB_TEST</title>
+  <link rel="stylesheet" href="./assets/app.css">
+  <link rel="stylesheet" href="./assets/mapa-archify.css?v=e375ff3c">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="topbar">
+    <div class="bar-inner">
+      <a class="brand" href="./index.html"><i aria-hidden="true"></i>UMBRELLA <span class="brand-divider">//</span> DB_TEST</a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="./index.html">Diccionario</a>
+        <a href="./esquema.html" aria-current="page">Mapa relacional</a>
+        <button id="theme" type="button">Tema</button>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap" id="contenido">
+    <p id="app-error" class="error" role="alert" hidden></p>
+    <section class="hero map-intro">
+      <div class="eyebrow">UMBRELLA CORP. // ARCHIVO RELACIONAL</div>
+      <h1>Mapa relacional<span class="map-accent">.</span></h1>
+      <p class="lead">Explora las tablas, sus campos y las relaciones declaradas en el respaldo. Mapa generado con Archify.</p>
+      <div class="chips" id="map-source"></div>
+    </section>
+    <div class="notice"><strong>Fotografía del respaldo.</strong> Las filas son las representadas en el archivo SQL, no una consulta en tiempo real. Los dominios son una interpretación de organización.</div>
+    <section aria-labelledby="alcance">
+      <div class="section-title"><div><div class="eyebrow">01 / ALCANCE</div><h2 id="alcance">Inventario del esquema</h2></div></div>
+      <div id="metrics" class="kpis" aria-label="Indicadores del esquema"></div>
+    </section>
+    <section aria-labelledby="explorar">
+      <div class="section-title"><div><div class="eyebrow">02 / EXPLORACIÓN</div><h2 id="explorar">Diagrama interactivo</h2></div></div>
+      <div class="map-toolbar">
+        <div class="control">
+          <label for="map-domain">Vista por dominio</label>
+          <select id="map-domain">
+            <option value="">Todas las tablas</option>
+            <option value="Identidad">Identidad</option>
+            <option value="Catálogo">Catálogo</option>
+            <option value="Compra">Compra</option>
+            <option value="Pagos">Pagos</option>
+            <option value="Posventa">Posventa</option>
+            <option value="Auditoría">Auditoría</option>
+          </select>
+        </div>
+        <a id="open-map" class="map-open" href="./mapas-archify/mapa-archify.html" target="_blank" rel="noopener">Abrir mapa a pantalla completa ↗</a>
+      </div>
+      <p class="subtle">Cada vista incluye las tablas del dominio y las tablas referenciadas que necesita. Dentro del mapa puedes buscar, seleccionar entidades, hacer zoom y exportar en SVG o PNG.</p>
+      <p id="map-status" class="subtle" aria-live="polite">Cargando el mapa…</p>
+      <div class="map-frame-shell"><iframe id="map-frame" title="Mapa relacional interactivo generado con Archify" loading="lazy"></iframe></div>
+    </section>
+    <section aria-labelledby="detalle">
+      <div class="section-title"><div><div class="eyebrow">03 / REFERENCIA</div><h2 id="detalle">Detalle del respaldo</h2></div></div>
+      <details class="entity"><summary><strong>Filas representadas por tabla</strong></summary><div class="entity-body"><div class="table-scroll"><table><thead><tr><th>Tabla</th><th>Dominio</th><th>Filas</th></tr></thead><tbody id="map-rows"></tbody></table></div></div></details>
+      <details class="entity"><summary><strong>Claves foráneas y columnas</strong></summary><div class="entity-body"><p class="subtle">Las claves compuestas mantienen juntas todas sus columnas. El filtro muestra las relaciones que parten del dominio seleccionado.</p><div class="table-scroll"><table><thead><tr><th>Restricción</th><th>Origen</th><th>Destino</th><th>Cardinalidad</th><th>DELETE / UPDATE</th></tr></thead><tbody id="map-relations"></tbody></table></div></div></details>
+    </section>
+    <footer class="footer"><a href="./index.html">← Volver al diccionario</a> · El mapa no incorpora registros personales ni valores de las filas.</footer>
+  </main>
+  <script type="module" src="./assets/mapa-host.js?v=e375ff3c"></script>
+</body>
+</html>
