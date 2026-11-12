@@ -2,7 +2,10 @@ export const $ = (selector, root = document) => root.querySelector(selector);
 export const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const number = n => new Intl.NumberFormat('es-MX').format(n);
 export async function loadModel() {
-  const response = await fetch('./schema.json');
+  const modelUrl = new URL('../schema.json', import.meta.url);
+  const revision = new URL(import.meta.url).searchParams.get('v');
+  if (revision) modelUrl.searchParams.set('v', revision);
+  const response = await fetch(modelUrl, {cache:'no-cache'});
   if (!response.ok) throw new Error(`No se pudo cargar schema.json (HTTP ${response.status})`);
   return response.json();
 }

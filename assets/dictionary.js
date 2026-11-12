@@ -1,4 +1,4 @@
-import { $, escapeHTML as e, number, loadModel, setupTheme, fillMetrics, fail } from './common.js';
+import { $, escapeHTML as e, number, loadModel, setupTheme, fillMetrics, fail } from './common.js?v=e375ff3c';
 
 const tag = (text, kind) => `<span class="badge ${kind}">${e(text)}</span>`;
 const formatColumns = columns => columns.map(e).join(', ');

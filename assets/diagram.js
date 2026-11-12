@@ -1,4 +1,4 @@
-import { $, escapeHTML as e, number, loadModel, setupTheme, fillMetrics, fail } from './common.js';
+import { $, escapeHTML as e, number, loadModel, setupTheme, fillMetrics, fail } from './common.js?v=e375ff3c';
 
 const NS='http://www.w3.org/2000/svg', svg=$('#diagram');
 function elem(name,attrs={},text='') { const el=document.createElementNS(NS,name); for(const [k,v] of Object.entries(attrs)) el.setAttribute(k,String(v)); if(text)el.textContent=text; return el; }
